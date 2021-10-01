@@ -16,6 +16,15 @@ public class Usuario {
     @Column(name="usr_id")
     private Long id;
 
+    @Column(name="usr_nome")
+    private String nome;
+
+    @Column(name="usr_email")
+    private String email;
+
+    @Column(name="usr_senha")
+    private String senha;
+    
     public Long getId() {
         return id;
     }
@@ -47,16 +56,5 @@ public class Usuario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-
-    @Column(name="usr_nome")
-    private String nome;
-
-    @Column(name="usr_email")
-    private String email;
-
-    @Column(name="usr_senha")
-    private String senha;
-
-
     
 }

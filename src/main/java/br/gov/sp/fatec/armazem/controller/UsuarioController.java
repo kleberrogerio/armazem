@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.gov.sp.fatec.armazem.service.SegurancaService;
+//import br.gov.sp.fatec.armazem.service.SegurancaService;
 
 
 @RestController
@@ -12,7 +12,7 @@ import br.gov.sp.fatec.armazem.service.SegurancaService;
 @RequestMapping(value="/usuario")
 public class UsuarioController{
 
-    private SegurancaService segurancaService;
+    //private SegurancaService segurancaService;
 
 
 }

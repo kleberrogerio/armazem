@@ -1,10 +1,16 @@
 package br.gov.sp.fatec.armazem.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -24,7 +30,22 @@ public class Usuario {
 
     @Column(name="usr_senha")
     private String senha;
+
+   
+    @ManyToMany(fetch=FetchType.LAZY)
+    @JoinTable(name="uau_usuario_autorizacao",
+        joinColumns = {@JoinColumn(name="usr_id")},
+        inverseJoinColumns = {@JoinColumn(name="aut_id")})
+    private Set<Autorizacao> Autorizacoes;
     
+    public Set<Autorizacao> getAutorizacoes() {
+        return Autorizacoes;
+    }
+
+    public void setAutorizacoes(Set<Autorizacao> autorizacoes) {
+        Autorizacoes = autorizacoes;
+    }
+
     public Long getId() {
         return id;
     }

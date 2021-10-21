@@ -12,8 +12,10 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.gov.sp.fatec.armazem.entity.Autorizacao;
+import br.gov.sp.fatec.armazem.entity.Produto;
 import br.gov.sp.fatec.armazem.entity.Usuario;
 import br.gov.sp.fatec.armazem.repository.AutorizacaoRepository;
+import br.gov.sp.fatec.armazem.repository.ProdutoRepository;
 import br.gov.sp.fatec.armazem.repository.UsuarioRepository;
 
 @SpringBootTest
@@ -27,6 +29,8 @@ class ArmazemApplicationTests {
 	@Autowired
 	private AutorizacaoRepository autorizacaoRepo;
 
+	@Autowired
+	private ProdutoRepository produtoRepo;
 
 	@Test
 	void contextLoads() {
@@ -89,6 +93,30 @@ class ArmazemApplicationTests {
 		usuarioRepo.save(usuario);
 
 		assertFalse(autorizacaoRepo.findByUsuariosNome("Teste").isEmpty());
+
+	}
+
+	@Test
+	void findbyProdutoNomeTest() {
+		Produto produto = new Produto();
+		produto.setNome("Arroz");
+		produto.setPeso(2L);
+		produto.setVolume(1L);
+		produtoRepo.save(produto);
+		
+		assertNotNull(produtoRepo.findbyProdutoNomeTest("Arroz"));
+
+	}
+
+	@Test
+	void findbyProdutoNomeOrPesoTest() {
+		Produto produto = new Produto();
+		produto.setNome("Arroz");
+		produto.setPeso(2L);
+		produto.setVolume(1L);
+		produtoRepo.save(produto);
+		
+		assertFalse(produtoRepo.findbyProdutoNomeConstainsOrPeso("Arroz", 2L).isEmpty());
 
 	}
 

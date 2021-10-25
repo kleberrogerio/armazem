@@ -51,11 +51,9 @@ create table mov_movimentacao (
 create table usr_usuario (
     usr_id bigint unsigned not null auto_increment,
     usr_nome varchar(20) not null,
-    usr_email varchar(100) not null,
     usr_senha varchar(100) not null,
     primary key (usr_id),
-    unique key uni_usuario_nome (usr_nome),
-    unique key uni_usuario_email (usr_email)
+    unique key uni_usuario_nome (usr_nome)
 );
 
 create table aut_autorizacao (

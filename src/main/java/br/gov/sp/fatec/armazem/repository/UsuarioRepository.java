@@ -7,7 +7,7 @@ import br.gov.sp.fatec.armazem.entity.Usuario;
 
 public interface UsuarioRepository extends JpaRepository <Usuario,Long>{
 
-    public Usuario findbyNome(String nome);
+    public Usuario findbyUsuarioNome(String nome);
 
     public List<Usuario> findbyNomeContainsOrEmailContains(String nome, String email);
     

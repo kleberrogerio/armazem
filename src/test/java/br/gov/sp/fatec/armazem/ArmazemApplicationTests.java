@@ -44,7 +44,7 @@ class ArmazemApplicationTests {
 		usuario.setSenha("123");
 		usuarioRepo.save(usuario);
 
-		assertNotNull(usuarioRepo.findbyNome("Kleber"));
+		assertNotNull(usuarioRepo.findbyUsuarioNome("Kleber"));
 	}
 
 	

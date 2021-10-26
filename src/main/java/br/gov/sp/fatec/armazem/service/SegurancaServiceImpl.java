@@ -23,7 +23,7 @@ public class SegurancaServiceImpl implements SegurancaService {
 
     @Transactional
     public Usuario cadastrarUsuario(String nome, String senha, String autorizacao){
-        Autorizacao aut = autorizacaoRepo.findByNome(autorizacao);
+        Autorizacao aut = autorizacaoRepo.findByAutorizacoesNome(autorizacao);
         if (aut==null){
             aut = new Autorizacao();   
             aut.setNome(autorizacao);

@@ -10,6 +10,6 @@ public interface AutorizacaoRepository extends JpaRepository<Autorizacao,Long>{
 
     public List<Autorizacao> findByUsuariosNome(String nome);
 
-    public Autorizacao findByNome(String nome);
+    public Autorizacao findByAutorizacoesNome(String nome);
     
 }

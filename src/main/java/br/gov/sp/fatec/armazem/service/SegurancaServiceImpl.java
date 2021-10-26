@@ -30,7 +30,6 @@ public class SegurancaServiceImpl implements SegurancaService {
             autorizacaoRepo.save(aut);
         }
 
-
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
         usuario.setSenha(senha);

@@ -17,6 +17,7 @@ import br.gov.sp.fatec.armazem.entity.Usuario;
 import br.gov.sp.fatec.armazem.repository.AutorizacaoRepository;
 import br.gov.sp.fatec.armazem.repository.ProdutoRepository;
 import br.gov.sp.fatec.armazem.repository.UsuarioRepository;
+import br.gov.sp.fatec.armazem.service.SegurancaService;
 
 @SpringBootTest
 @Transactional
@@ -31,6 +32,9 @@ class ArmazemApplicationTests {
 
 	@Autowired
 	private ProdutoRepository produtoRepo;
+
+	@Autowired
+	private SegurancaService segurancaService;
 
 	@Test
 	void contextLoads() {
@@ -118,6 +122,13 @@ class ArmazemApplicationTests {
 		
 		assertFalse(produtoRepo.findbyProdutoNomeConstainsOrPeso("Arroz", 2L).isEmpty());
 
+	}
+
+	@Test
+	void novoUsuarioTest(){
+		segurancaService.cadastrarUsuario("Teste","123","ROLE_TESTE");
+
+		assertNotNull(usuarioRepo.findbyUsuarioNome("Teste"));
 	}
 
 }

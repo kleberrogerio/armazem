@@ -126,7 +126,7 @@ class ArmazemApplicationTests {
 
 	@Test
 	void novoUsuarioTest(){
-		segurancaService.cadastrarUsuario("Teste","123","ROLE_TESTE");
+		segurancaService.cadastrarUsuario("Teste","teste@email.com","123","ROLE_TESTE");
 
 		assertNotNull(usuarioRepo.findbyUsuarioNome("Teste"));
 	}

@@ -6,7 +6,7 @@ import br.gov.sp.fatec.armazem.entity.Usuario;
 
 public interface SegurancaService {
 
-    public Usuario cadastrarUsuario(String nome, String senha, String autorizacao);
+    public Usuario cadastrarUsuario(String nome, String email,String senha, String autorizacao);
 
     public List<Usuario> buscarTodosUsuarios();
     

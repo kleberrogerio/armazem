@@ -22,7 +22,7 @@ public class SegurancaServiceImpl implements SegurancaService {
     AutorizacaoRepository autorizacaoRepo;
 
     @Transactional
-    public Usuario cadastrarUsuario(String nome, String senha, String autorizacao){
+    public Usuario cadastrarUsuario(String nome, String email,String senha, String autorizacao){
         Autorizacao aut = autorizacaoRepo.findByAutorizacoesNome(autorizacao);
         if (aut==null){
             aut = new Autorizacao();   
@@ -32,6 +32,7 @@ public class SegurancaServiceImpl implements SegurancaService {
 
         Usuario usuario = new Usuario();
         usuario.setNome(nome);
+        usuario.setEmail(email);
         usuario.setSenha(senha);
         usuario.setAutorizacoes(new HashSet<Autorizacao>());
         usuario.getAutorizacoes().add(aut);
